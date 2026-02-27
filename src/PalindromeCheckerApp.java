@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
@@ -65,5 +67,24 @@ public class PalindromeCheckerApp {
         }
         System.out.println("Input : " + inputUC5);
         System.out.println("Is Palindrome? : " + isPalindromeUC5);
+        System.out.println();
+
+        // UC6 - Queue + Stack Based Palindrome Check
+        String inputUC6 = "civic";
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stackUC6 = new Stack<>();
+        for (char c : inputUC6.toCharArray()) {
+            queue.add(c);
+            stackUC6.push(c);
+        }
+        boolean isPalindromeUC6 = true;
+        while (!queue.isEmpty()) {
+            if (queue.remove() != stackUC6.pop()) {
+                isPalindromeUC6 = false;
+                break;
+            }
+        }
+        System.out.println("Input : " + inputUC6);
+        System.out.println("Is Palindrome? : " + isPalindromeUC6);
     }
 }
