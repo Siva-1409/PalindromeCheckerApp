@@ -28,5 +28,23 @@ public class PalindromeCheckerApp {
         boolean isPalindromeUC3 = input.equals(reversed);
         System.out.println("Reversed text: " + reversed);
         System.out.println("Is it a Palindrome (Using Reverse)? : " + isPalindromeUC3);
+        System.out.println();
+
+        // UC4 - Character Array Based Validation
+        String inputUC4 = "radar";
+        char[] chars = inputUC4.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindromeUC4 = true;
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindromeUC4 = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+        System.out.println("Input text: " + inputUC4);
+        System.out.println("Is a Palindrome  : " + isPalindromeUC4);
     }
 }
