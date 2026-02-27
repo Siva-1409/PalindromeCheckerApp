@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
@@ -46,5 +48,22 @@ public class PalindromeCheckerApp {
         }
         System.out.println("Input text: " + inputUC4);
         System.out.println("Is a Palindrome  : " + isPalindromeUC4);
+        System.out.println();
+
+        // UC5 - Stack Based Palindrome Check
+        String inputUC5 = "noon";
+        Stack<Character> stack = new Stack<>();
+        for (char c : inputUC5.toCharArray()) {
+            stack.push(c);
+        }
+        boolean isPalindromeUC5 = true;
+        for (char c : inputUC5.toCharArray()) {
+            if (c != stack.pop()) {
+                isPalindromeUC5 = false;
+                break;
+            }
+        }
+        System.out.println("Input : " + inputUC5);
+        System.out.println("Is Palindrome? : " + isPalindromeUC5);
     }
 }
