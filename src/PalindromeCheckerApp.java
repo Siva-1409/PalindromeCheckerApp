@@ -2,32 +2,25 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "madam";
+        String input = "level";
 
-        PalindromeService service = new PalindromeService();
+        long startTime = System.nanoTime();
 
-        boolean result = service.checkPalindrome(input);
+        boolean isPalindrome = true;
 
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + result);
-    }
-}
-
-class PalindromeService {
-
-    public boolean checkPalindrome(String input) {
-
-        int start = 0;
-        int end = input.length() - 1;
-
-        while (start < end) {
-            if (input.charAt(start) != input.charAt(end)) {
-                return false;
+        for (int i = 0; i < input.length() / 2; i++) {
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
             }
-            start++;
-            end--;
         }
 
-        return true;
+        long endTime = System.nanoTime();
+
+        long executionTime = endTime - startTime;
+
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Execution Time : " + executionTime + " ns");
     }
-} //Object-Oriented Palindrome Service
+}
